@@ -1,10 +1,13 @@
 let titulo = document.querySelector('.titulo');
     titulo.textContent = 'Aparecida Nutricionista';
+let pacientes = document.querySelectorAll('.paciente');
+let botaoAdicionar = document.querySelector("#adicionar-paciente"); 
 
-let pacientes = document.querySelectorAll('.paciente'); 
+titulo.addEventListener("click", function () {console.log("Olá! Eu fui clicado!");}); // evento de click com função anônima
+
+
 
 for(let i = 0; i < pacientes.length; i++) {
-    console.log(pacientes[i]);
     let paciente = pacientes[i];
     let peso = paciente.querySelector('.info-peso').textContent;    
     let altura = paciente.querySelector('.info-altura').textContent;
@@ -31,5 +34,6 @@ for(let i = 0; i < pacientes.length; i++) {
 
     if(pesoValido && alturaValida) {
         tdImc.textContent = imc.toFixed(2); // funcao para limitar as casas decimais
-    }
+    }    
 }
+
