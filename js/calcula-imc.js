@@ -5,7 +5,10 @@ let botaoAdicionar = document.querySelector("#adicionar-paciente");
 
 titulo.addEventListener("click", function () {console.log("Olá! Eu fui clicado!");}); // evento de click com função anônima
 
-
+function calculaImc(peso, altura) {
+    let imc = peso / (altura * altura);
+    return imc.toFixed(2); // funcao para limitar as casas decimais
+}
 
 for(let i = 0; i < pacientes.length; i++) {
     let paciente = pacientes[i];
@@ -15,7 +18,6 @@ for(let i = 0; i < pacientes.length; i++) {
 
     let pesoValido = true;
     let alturaValida = true;
-    let imc = peso / (altura * altura);
 
     if(peso < 0 || peso > 300) { 
         pesoValido = false;
@@ -33,7 +35,7 @@ for(let i = 0; i < pacientes.length; i++) {
     }
 
     if(pesoValido && alturaValida) {
-        tdImc.textContent = imc.toFixed(2); // funcao para limitar as casas decimais
+        tdImc.textContent = calculaImc(peso, altura); 
     }    
 }
 
